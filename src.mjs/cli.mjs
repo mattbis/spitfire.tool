@@ -11,17 +11,16 @@ import {
   writeAliasesConf,
   suggestDefaultAlias,
 } from './conf.mjs';
+import { loadRuntimeConfig } from './rc.mjs';
 
-const APPDATA_SETTINGS_DIR =
-  process.env.SPITFIRE_APPDATA_DIR ||
-  path.join(process.env.APPDATA || 'C:\\Users\\matt\\AppData\\Roaming', 'Spitfire Audio', 'Settings');
-
-const ETC_SETTINGS_DIR =
-  process.env.SPITFIRE_ETC_DIR || 'I:\\etc\\au\\spitfire\\settings';
+const RUNTIME_CFG = loadRuntimeConfig();
+const APPDATA_SETTINGS_DIR = RUNTIME_CFG.appDataDir;
+const ETC_SETTINGS_DIR = RUNTIME_CFG.etcDir;
+const RC_FILE_USED = RUNTIME_CFG.rcFile;
 
 const ACTIVE_TAG_FILE = path.join(ETC_SETTINGS_DIR, 'active_tag');
 const ALIASES_FILE = path.join(ETC_SETTINGS_DIR, 'aliases.conf');
-const DEFAULT_TAG = 'default';
+const DEFAULT_TAG = RUNTIME_CFG.defaultTag || 'default';
 
 function ensureEtcDir() {
   if (!fs.existsSync(ETC_SETTINGS_DIR)) {
@@ -220,6 +219,7 @@ function cmdStatus() {
     activeTag === DEFAULT_TAG ? defaultMap : readTagConf(getTagConfPath(activeTag));
 
   console.log(`Active Tag : ${activeTag}`);
+  console.log(`RC File    : ${RC_FILE_USED || '(none - using defaults)'}`);
   console.log(`Config Dir : ${ETC_SETTINGS_DIR}`);
   console.log(`AppData Dir: ${APPDATA_SETTINGS_DIR}\n`);
 

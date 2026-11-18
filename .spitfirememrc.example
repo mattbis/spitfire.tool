@@ -1,0 +1,8 @@
+# spitfiremem (.spitfirememrc) example configuration
+# Copy this file to .spitfirememrc (in the project root or your home directory ~)
+# and customize the paths for your machine.
+
+# key        , value
+etc_dir      , ~/.spitfiremem/settings
+appdata_dir  , %APPDATA%\Spitfire Audio\Settings
+default_tag  , default

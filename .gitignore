@@ -1,1 +1,4 @@
-node_modules
+.spitfirememrc
+.spfmrc
+*.lnk
+node_modules/
