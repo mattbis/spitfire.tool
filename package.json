@@ -1,0 +1,11 @@
+{
+  "name": "spitfiremem",
+  "version": "1.0.0",
+  "description": "Spitfire Audio JUCE preload & buffer tag switcher and settings manager",
+  "type": "module",
+  "bin": {
+    "spitfire-mem-tool": "./src.mjs/cli.mjs",
+    "spitfiremem": "./src.mjs/cli.mjs",
+    "spfm": "./src.mjs/cli.mjs"
+  }
+}
