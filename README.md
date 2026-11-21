@@ -30,7 +30,7 @@ spitfire.tool/
 │   ├── spfm.sh / spfm.cmd                        # Short CLI launcher
 │   ├── spitfiremem.sh / spitfiremem.cmd          # Project-named CLI launcher
 │   └── spitfire-mem-tool.sh / .cmd               # Full-named CLI launcher
-├── src.mjs/
+├── src-mjs.dev/
 │   ├── cli.mjs                                   # CLI command router
 │   ├── conf.mjs                                  # Column-aligned .conf parser/writer
 │   ├── juce-xml.mjs                              # Lossless JUCE <PROPERTIES> XML reader/patcher
